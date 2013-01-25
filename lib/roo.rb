@@ -1,12 +1,13 @@
 module Roo
 
-  VERSION = '1.10.2'
+  VERSION = '1.10.3'
 
   class Spreadsheet
     class << self
-      def open(file)
+      def open(file, ext = "")
         file = File === file ? file.path : file
-        case File.extname(file)
+        ext = File.extname(file) if ext.blank?
+        case ext
         when '.xls'
           Roo::Excel.new(file)
         when '.xlsx'
