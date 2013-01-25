@@ -11,7 +11,7 @@ module Roo
         when '.xls'
           Roo::Excel.new(file)
         when '.xlsx'
-          Roo::Excelx.new(file)
+          Roo::Excelx.new(file, ext.blank?)
         when '.ods'
           Roo::Openoffice.new(file)
         when '.xml'
